@@ -8,7 +8,7 @@
  * @format
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -16,6 +16,7 @@ import {
   View,
   Text,
   StatusBar,
+  Button
 } from 'react-native';
 
 import {
@@ -29,11 +30,13 @@ import {
 declare const global: {HermesInternal: null | {}};
 
 const App = () => {
+  const [buttonTextIsShow, setButtonTextIsShow] = useState(false)
   return (
     <>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
         <ScrollView
+          testID="scrollView"
           contentInsetAdjustmentBehavior="automatic"
           style={styles.scrollView}>
           <Header />
@@ -43,6 +46,26 @@ const App = () => {
             </View>
           )}
           <View style={styles.body}>
+            <View style={styles.sectionContainer}>
+              <Text style={styles.sectionTitle} testID="hello">
+                Hello World
+              </Text>
+              <Button
+                title="Press Button"
+                testID="pressButton"
+                onPress={() => {
+                  setButtonTextIsShow(!buttonTextIsShow);
+                }}>
+                Press Button
+              </Button>
+              {buttonTextIsShow && (
+                <Text
+                  style={styles.sectionDescription}
+                  testID="pressButtonText">
+                Press Button Text
+                </Text>
+              )}
+            </View>
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>Step One</Text>
               <Text style={styles.sectionDescription}>

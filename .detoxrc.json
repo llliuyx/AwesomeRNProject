@@ -1,0 +1,21 @@
+{
+  "testRunner": "jest",
+  "runnerConfig": "e2e/config.json",
+  "configurations": {
+    "ios": {
+      "type": "ios.simulator",
+      "binaryPath": "/Users/meituan/Library/Developer/Xcode/DerivedData/AwesomeRNProject-drnfihfxlbfikabitvqaboacvswb/Build/Products/Debug-iphonesimulator/AwesomeRNProject.app",
+      "build": "xcodebuild build -workspace ios/AwesomeRNProject.xcworkspace -scheme AwesomeRNProject  -configuration Debug -destination 'platform=iphonesimulator,name=iPhone 8'",
+      "device": {
+        "type": "iPhone 8"
+      }
+    },
+    "android": {
+      "type": "android.emulator",
+      "binaryPath": "SPECIFY_PATH_TO_YOUR_APP_BINARY",
+      "device": {
+        "avdName": "Pixel_2_API_29"
+      }
+    }
+  }
+}
